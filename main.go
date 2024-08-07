@@ -10,6 +10,7 @@ func main() {
 	defer func() {
 		if err := recover(); err != nil {
 			logger.LogLn("Main()", "Recover error: \n", err)
+			<-make(chan os.Signal, 1)
 		}
 	}()
 
